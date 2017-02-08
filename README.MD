@@ -203,7 +203,30 @@ console.log("b defined? " + (typeof b !== 'undefined'));`
 
 IIFE 中的赋值过程其实是（赋值过程从右到左）a 是局部变量，b 是全局变量
 
-#### 9、
+#### 9、写一个函数，要求其可以将#fff,转成rgb(225,225,225)
 ```
+var reg = /^#(\w{3}|\w{6})$/;
+
+function colorRgb(color){
+	var sColor = color.toLowerCase();
+	if(sColor && reg.test(sColor)){
+		if(sColor.length === 4){
+			var sColorNew = "#";
+			for(var i=1; i<4; i+=1){
+				sColorNew += sColor.slice(i,i+1).concat(sColor.slice(i,i+1));	
+			}
+			sColor = sColorNew;
+		}
+		//处理六位的颜色值
+		var sColorChange = [];
+		for(var i=1; i<7; i+=2){
+			sColorChange.push(parseInt("0x"+sColor.slice(i,i+2)));	
+		}
+		return "RGB(" + sColorChange.join(",") + ")";
+	}else{
+		return sColor;	
+	}
+};
+alert(colorRgb('#efefef'))
 
 ```
