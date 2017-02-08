@@ -230,3 +230,4 @@ function colorRgb(color){
 alert(colorRgb('#efefef'))
 
 ```
+JavaScript颜色转换的核心就是进制间的转换。RGB格式其实就是十进制表示法，所以，十六进制颜色与RGB颜色的转换就是十六进制与十进制之间的转换。
