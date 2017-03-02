@@ -71,6 +71,17 @@ var fn;
 ```
 答案：me
 
+```
+var a = {n:1};
+var b = a;
+a.x = a = {n:2};
+
+alert(a.x);// --> undefined
+alert(b.x);// --> [object Object]
+```
+
+[javascript 连等赋值问题](https://segmentfault.com/q/1010000002637728)
+
 #### 3、给基本类型数据添加属性，不报错，但取值时是undefined
 ```
 var a = 10;
