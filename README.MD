@@ -81,6 +81,7 @@ alert(b.x);// --> [object Object]
 ```
 
 [javascript 连等赋值问题](https://segmentfault.com/q/1010000002637728)
+![image](https://user-images.githubusercontent.com/9944527/28561868-b2c7deea-7152-11e7-9e1d-93aa35e1fb28.png)
 
 #### 3、给基本类型数据添加属性，不报错，但取值时是undefined
 ```
