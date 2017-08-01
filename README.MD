@@ -176,6 +176,17 @@ Map 方法：
     return arr.filter((a) => !seen.has(a) && seen.set(a, 1))
   }
 ```
+普通的写法：
+```js
+function unique(arr){
+    var uniqeArray = [];
+    for(var i = 0;i < arr.length; i++){
+        if(uniqeArray.indexOf(arr[i]) == -1) uniqeArray.push(arr[i]);
+    }
+    return uniqeArray;
+}
+
+```
 
 #### 6、找出数字数组中最大的元素（使用Math.max函数）
 ```js
