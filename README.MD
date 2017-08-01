@@ -153,7 +153,7 @@ alert(letter + ': ' + maxn);
 ```
 Set 写法：
 
-```
+```js
   var arr = [1, 3, 6, 2, 3, 5, 8, 1, 9];
 
   function unique(arr){
@@ -197,7 +197,7 @@ console.log(ans);  // 6
 ```
 这题很巧妙地用了apply，如果不是数组，是很多数字求最大值，我们知道可以这样：
 
-```
+```js
 var ans = Math.max(1, 2, 3, 4, 5, 6);
 console.log(ans); // 6
 ```
@@ -206,7 +206,7 @@ console.log(ans); // 6
 
 #### 7、实现如下语法的功能：var a = add(2)(3)(4); //9
 
-```
+```js
 
 ```
 
@@ -294,7 +294,7 @@ console.log(7);
 
 
 #### 10、写一个函数，要求其可以将#fff,转成rgb(225,225,225)
-```
+```js
 var reg = /^#(\w{3}|\w{6})$/;
 
 function colorRgb(color){
