@@ -352,6 +352,23 @@ function doFoo(fn) {
   foo() // 当前调用栈是 doFoo，this代表window
 }
 ```
+再看下面的例子：
+```js
+function() {
+  console.log(this.a)
+}
+var obj = {
+  a: 2
+}
+var bar = function() {
+  foo.call(obj)
+}
+bar() 
+setTimeout( bar, 100)
+bar.call(window)
+```
+上面的例子输出的都是2，由此可见，用 call、apply 修改过的this，是无法的。
+
 
 
 
