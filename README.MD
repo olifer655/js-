@@ -321,3 +321,37 @@ alert(colorRgb('#efefef'))
 
 ```
 JavaScript颜色转换的核心就是进制间的转换。RGB格式其实就是十进制表示法，所以，十六进制颜色与RGB颜色的转换就是十六进制与十进制之间的转换。
+
+#### 11.请问下列函数输出什么？
+```js
+function foo() {
+	console.log( this.a )
+}
+var obj = {
+	a: 2,
+	foo: foo
+}
+
+var a = 'oops, global'
+function doFoo(fn) {
+	console.log( this.a )
+}
+doFoo(foo)
+setTimeout(obj.foo, 100)
+```
+这是《You Dont Know JavaScript》上册的一个例子，我们知道 javascript 的作用域是词法作用域，与运行时无关，但是this则例外。它的值取决于调用它的函数的位置。`setTimeout(obj.foo, 100)`实际上是（伪代码）
+```js
+function setTimeout () {
+	obj.foo()
+}
+window.setTimeout ()
+```
+而`doFoo(fn)` 实际的调用栈是：
+```js
+function doFoo(fn) {
+	foo() // 当前调用栈是 doFoo，this代表window
+}
+```
+
+
+
