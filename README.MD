@@ -79,11 +79,7 @@ a.x = a = {n:2};
 alert(a.x);// --> undefined
 alert(b.x);// --> [object Object]
 ```
-
-[javascript 连等赋值问题](https://segmentfault.com/q/1010000002637728)
-![image](https://user-images.githubusercontent.com/9944527/28561868-b2c7deea-7152-11e7-9e1d-93aa35e1fb28.png)
-
-另一方面，赋值是从右到左的，.运算优先于=赋值运算，
+赋值是从右到左的，.运算优先于=赋值运算，
 `a.x = a = {n:2};`
 因此此处赋值可理解为
 
@@ -94,6 +90,9 @@ alert(b.x);// --> [object Object]
 
 a => {n: 2}
 b => {n: 1, x: {n: 2 } }    
+![image](https://user-images.githubusercontent.com/9944527/28561868-b2c7deea-7152-11e7-9e1d-93aa35e1fb28.png)
+
+[javascript 连等赋值问题](https://segmentfault.com/q/1010000002637728)
 #### 3、给基本类型数据添加属性，不报错，但取值时是undefined
 ```js
 var a = 10;
