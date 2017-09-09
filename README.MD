@@ -88,8 +88,10 @@ alert(b.x);// --> [object Object]
 3. 对步骤1中x属性，也即a原指向对象的x属性，也即b指向对象的x属性赋值
 赋值结果：
 
+```js
 a => {n: 2}
-b => {n: 1, x: {n: 2 } }    
+b => {n: 1, x: {n: 2 } }  
+```
 ![image](https://user-images.githubusercontent.com/9944527/28561868-b2c7deea-7152-11e7-9e1d-93aa35e1fb28.png)
 
 [javascript 连等赋值问题](https://segmentfault.com/q/1010000002637728)
