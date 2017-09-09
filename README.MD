@@ -83,6 +83,17 @@ alert(b.x);// --> [object Object]
 [javascript 连等赋值问题](https://segmentfault.com/q/1010000002637728)
 ![image](https://user-images.githubusercontent.com/9944527/28561868-b2c7deea-7152-11e7-9e1d-93aa35e1fb28.png)
 
+另一方面，赋值是从右到左的，.运算优先于=赋值运算，
+`a.x = a = {n:2};`
+因此此处赋值可理解为
+
+1. 声明a对象中的x属性，用于赋值，此时b指向a，同时拥有未赋值的x属性
+2. 对a对象赋值，此时变量名a改变指向到对象{n:2}
+3. 对步骤1中x属性，也即a原指向对象的x属性，也即b指向对象的x属性赋值
+赋值结果：
+
+a => {n: 2}
+b => {n: 1, x: {n: 2 } }    
 #### 3、给基本类型数据添加属性，不报错，但取值时是undefined
 ```js
 var a = 10;
