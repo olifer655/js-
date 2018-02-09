@@ -84,8 +84,12 @@ alert(b.x);// --> [object Object]
 因此此处赋值可理解为
 
 1. 声明a对象中的x属性，用于赋值，此时b指向a，同时拥有未赋值的x属性
-2. 对a对象赋值，此时变量名a改变指向到对象{n:2}
-3. 对步骤1中x属性，也即a原指向对象的x属性，也即b指向对象的x属性赋值
+2. 对a对象赋值，此时变量名a改变指针，指向到对象{n:2}
+3. 对步骤1中x属性，即b指向对象的x属性赋值
+
+一开始js已经先计算了a.x，便已经解析了这个a.x是对象A的x，所以在同一条公式的情况下再回来给a.x赋值，也不会说重新解析这个a.x为对象B的x。
+所以 a.x=a 应理解为对象A的属性x指向了对象B。
+
 赋值结果：
 
 ```js
@@ -95,6 +99,7 @@ b => {n: 1, x: {n: 2 } }
 ![image](https://user-images.githubusercontent.com/9944527/28561868-b2c7deea-7152-11e7-9e1d-93aa35e1fb28.png)
 
 [javascript 连等赋值问题](https://segmentfault.com/q/1010000002637728)
+[详细解释](http://www.cnblogs.com/huaan011/p/4381703.html)
 #### 3、给基本类型数据添加属性，不报错，但取值时是undefined
 ```js
 var a = 10;
