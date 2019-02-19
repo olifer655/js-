@@ -208,7 +208,13 @@ function unique(arr){
 #### 6、找出数字数组中最大的元素（使用Math.max函数）
 ```js
 var a = [1, 2, 3, 6, 5, 4];
+
+// ES5的 写法
 var ans = Math.max.apply(null, a);
+
+// ES6 的写法
+Math.max(...a)
+
 console.log(ans);  // 6
 
 ```
