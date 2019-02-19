@@ -377,7 +377,7 @@ function doFoo(fn) {
 ```
 再看下面的例子：
 ```js
-function() {
+function foo() {
   console.log(this.a)
 }
 var obj = {
