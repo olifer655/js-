@@ -168,6 +168,16 @@ alert(letter + ': ' + maxn);
   }
 
 ```
+或者
+
+```js
+  var arr = [1, 3, 6, 2, 3, 5, 8, 1, 9];
+
+  function unique (arr) {
+    return [...new Set(arr)]
+  }
+
+```
 Set 写法：
 
 ```js
@@ -204,6 +214,8 @@ function unique(arr){
 }
 
 ```
+
+可以利用，object的 key 不能重复的特点。
 
 #### 6、找出数字数组中最大的元素（使用Math.max函数）
 ```js
@@ -315,6 +327,7 @@ console.log(7);
 ```
 此时的输出顺序是1, 4, 7, 5, 6, 3, 2。
 
+[js 数组去重](https://www.jianshu.com/p/131ca13e7f28)
 
 #### 10、写一个函数，要求其可以将#fff,转成rgb(225,225,225)
 ```js
