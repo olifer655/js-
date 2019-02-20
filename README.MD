@@ -217,6 +217,8 @@ function unique(arr){
 
 可以利用，object的 key 不能重复的特点。
 
+[数组去重](https://blog.csdn.net/qxuewei/article/details/52837083)
+
 #### 6、找出数字数组中最大的元素（使用Math.max函数）
 ```js
 var a = [1, 2, 3, 6, 5, 4];
