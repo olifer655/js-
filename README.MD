@@ -407,6 +407,146 @@ bar.call(window)
 ```
 上面的例子输出的都是2，由此可见，用 call、apply 修改过的this，是无法的。
 
+## 12、有一个多维数组，需要转换成一维数组。注意：题目的答题时间是5-10分钟。如果超过10分钟没有完成，请停止答题，提交表单。
+
+```
+答题代码：
+var a = [1, [2, [3, 4]], 5, [6]];
+
+var flatten = function(array) {
+// 你需要补充的代码
+}
+
+console.log(flatten(a)); // 输出 [1, 2, 3, 4, 5, 6]
+```
+
+答：
+
+```js
+var a = [1, [2, [3, 4]], 5, [6]];
+var f = function(arr, result) {
+    arr.forEach(function(item) {
+        if (item instanceof Array) {
+            f(item, result);
+        } else {
+            result.push(item);
+        }
+    })
+    return result;
+}
+var flatten = function(arr) {
+    return f(arr, []);
+}
+console.log(flatten(a));
+```
+## 13、
+
+```
+请把这个重复的元素找出来，要求所有的元素只能访问一次，空间复杂度 O(1)。
+
+如果无法理解O(1)的空间复杂度，做一个简单的解释：
+    只能使用常量个空间，使用的空间不能和数组的长度有关系，比如如果使用另外一个长度和给定数组长度一样的数组，则空间复杂度是 O(n)。
+
+注意：题目的答题时间是5-10分钟。如果超过10分钟没有完成，请停止答题，提交表单。
+
+使用下面的代码开始答题：
+
+// 这个方法生成了1001个元素的数组，只有一个元素是重复的。
+var getArray = function() {
+    var count = 1000;
+    var array = [];
+
+    for (var i = 1; i <= count; i++) {
+        array.push(i);
+    }
+
+    var special = Math.floor(Math.random() * (count + 1));
+    array.push(special);
+    console.log('重复数字为：' + special);
+
+    return array.sort(function() {
+        return Math.random() - 0.5;
+    });
+};
+
+var findNumber = function(array) {
+    //你要实现的代码写在这里。
+};
+
+console.log('找到的重复数字为：' + findNumber(getArray()));
+
+```
+
+答： 
+```js
+var findNumber = function(array) {
+   var special = 0;
+   array.sort();  // 先排序，相同的就在一起了
+   array.sort((next, pre) => {	
+	if(next == pre) {
+		special = next;
+	}
+	return 1
+    })
+    return special;
+};
+
+```
+
+
+## 14、
+
+```
+有一个数组，里面只存在 * 和 字母，比如 ['*', 'd', 'c', '*', 'e', '*', 'a', '*']。
+现在需要把这个数组中的所有星号移动到左边，所有的字母移动到右边，所有字母的顺序不能改变。要求时间复杂度是 O(n)，空间复杂度是 O(1)。
+
+如果你没有思路同时满足O(n)和O(1)，请满足空间复杂度O(1)的条件，只满足时间复杂度  O(n) 不得分。
+
+如果无法理解时间复杂度和空间复杂度，做一个简单的解释：
+1. O(n)的意思是只能对数组做单层 for 循环，可以进行多次。
+2. O(1)的意思是只能使用常量个空间，使用的空间不能和数组的长度有关系，比如如果使用另外一个长度和给定数组长度一样的数组，则空间复杂度是 O(n)。
+
+注意：题目的答题时间是5-10分钟。如果超过10分钟没有完成，请停止答题，提交表单。
+
+使用下面的代码开始答题：
+var a = ['*', 'd', 'c', '*', 'e', '*', 'a', '*'];
+
+var sort = function(array) {
+//请补充此处代码
+};
+
+console.log(sort(a));// 应该返回['*', '*', '*' ,'*', 'd', 'c', 'e', 'a']
+```
+答：
+
+```js
+
+var a = ['*', 'd', 'c', '*', 'e', '*', 'a', '*']
+
+var sort = function(array) {
+	array.sort((pre, next)=> {
+		if(pre == "*") {
+			return -1;
+		}
+	})
+}
+sort(a);
+
+```
+补充：
+
+sort使用方法：
+
+```js
+var arr=[];
+arr.sort();//默认排序
+arr.sort(comparefn(a,b));//自定义排序比较方法
+
+```js
+
+当没有参数传入的时候，其排序顺序默认为，将待排序数据转换为字符串，并按照Unicode序列排序；当然，比较函数可以自定义，自定义排序函数需要返回值，其返回值为-1，0，1，分别表示a<b, a=b, a>b.
+
+当数组长度小于等于10的时候，采用插入排序，大于10的时候，采用快排。
 
 
 
